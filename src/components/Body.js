@@ -1,80 +1,66 @@
-import { restaurantList } from "../utils/constants";
 import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
- import Shimmer from "./Shimmer";
+import resList from "../utils/mockData";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
-function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant?.data?.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-  return filterData;
-}
-
-// Body Component for body section: It contain all restaurant cards
-// We are mapping restaurantList array and passing JSON data to RestaurantCard component as props with unique key as index
 const Body = () => {
-  // useState: To create a state variable, searchText is local state variable
-  const [searchText, setSearchText] = useState("");
-  const [restaurants, setRestaurants] = useState(restaurantList);
+  let [listOfResaturants, setListOfRestaurant] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant]=useState([]);
 
-  useEffect (()=> { 
-    fetchData() ;
-}, []);
+  const [searchText, setSearchText]=useState("");
 
-    const fetchData = async() =>{
-        const data = await fetch("  ")
-    };
-   
-    // const json = await data.json();
-  
-//Conditionl rendering
-// if (restaurants.length ===0){
-//     return <Shimmer />;
-// }
+  useEffect(()=>{
+    fetchData();
+  }, []);
 
-  return restaurants.length ===0 ?
- <Shimmer />:
+  const fetchData=async()=>{
+    const data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
 
-    <>
-    <div className="filter">
-      <div className="search-container">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Search a restaurant you want..."
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        ></input>
+    const jsondata = await data.json();
+    console.log(jsondata);
 
+    setListOfRestaurant(jsondata?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(jsondata?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  };
+
+  if(listOfResaturants.length===0){
+    return<Shimmer/>
+  }
+  return (
+    <div className="body">
+      <div className="filter">
+        <div className="search">
+            <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+                setSearchText(e.target.value)
+            }}/>
+            <button onClick={()=>{
+                const filteredRestro=listOfResaturants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                setFilteredRestaurant(filteredRestro);
+            }}>Search</button>
+        </div>
         <button
-          className="search-btn"
+          className="filter-btn"
           onClick={() => {
-            // filter the data
-            const data = filterData(searchText, restaurants);
-            // update the state of restaurants list
-            setRestaurants(data);
+            //filter Logic
+            const filteredList = (listOfResaturants = listOfResaturants.filter(
+              (res) => res.into.avgRating > 4
+            ));
+            setListOfRestaurant(filteredList);
           }}
         >
-          Search
+          Top Rated Restaurants
         </button>
-      
-        </div>
-      <button className="=filter-btn"
-      onClick={() => {
-        const filteredList = listOfRestaurants.filter(
-            (res)=> res.data.avgRating > 4 ) ;
-            setListOfRestaurant(filteredList);
-      }}> </button></div>
-
-      <div className="restaurant-list">
-        {restaurants.map((restaurant) => {
-          return (
-            <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
-          );
-        })}
       </div>
-    </>
-  
+      <div className="search">Search</div>
+      <div className="res-container">
+        {filteredRestaurant.map((restaurant) => (
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Body;

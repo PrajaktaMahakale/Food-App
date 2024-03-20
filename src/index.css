@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* Header CSS */
@@ -23,21 +24,43 @@
   width: 100px;
 }
 
-.nav-items {
-  padding: 0 10px 0;
-  width: auto;
-}
-
 .nav-items > ul {
   list-style-type: none;
   display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
 }
 
 .nav-items > ul > li {
-  padding: 40px 10px 0 0;
+  padding: 10px;
   font-size: large;
   cursor: pointer;
 }
+
+.nav-items > ul > li .logout-btn,
+.nav-items > ul > li .login-btn {
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  margin-right: 15px;
+}
+
+.nav-items > ul > li .logout-btn {
+  background-color: var(--orange);
+}
+
+.nav-items > ul > li .login-btn {
+  background-color: var(--light-red);
+}
+
+.nav-items > ul > li .logout-btn:hover,
+.nav-items > ul > li .login-btn:hover {
+  background-color: var(--dark-green);
+}
+
 
 /* Body CSS */
 .search-container {
