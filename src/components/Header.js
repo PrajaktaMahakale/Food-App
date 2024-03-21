@@ -4,8 +4,8 @@ import {Link} from "react-router-dom"
 
 const Header=()=>{
  const [btnNameReact, setBtnNameReact ] = useState("Login");
-
-    return (
+console.log(btnNameReact);
+return (
  <div className="header"> 
  <div className = "logo-container">
     <img className="logo" src = {LOGO_URL}></img>
@@ -23,7 +23,7 @@ const Header=()=>{
             "login"onClick={() => {
                 btnNameReact ==="Login"
               ?  setBtnNameReact("Logout")
-              :  setBtnNameReact("Logout");
+              :  setBtnNameReact("Login");
             }}>
             
             {btnNameReact}
