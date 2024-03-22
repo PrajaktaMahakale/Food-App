@@ -34843,7 +34843,7 @@ const useRestaurantMenu = (resId)=>{
     const fetchMenu = async ()=>{
         const data = await fetch((0, _constants.MENU_API) + resId);
         const json = await data.json();
-        console.log(json);
+        console.log(json.data);
         setResInfo(json.data);
     };
     return resInfo;
