@@ -1,4 +1,8 @@
-/* Select all CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Select all CSS
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +11,7 @@
 }
 
 /* Header CSS */
-.header {
+/*.header {
   display: flex;
   justify-content: space-between;
   margin: 10px;
@@ -64,7 +68,7 @@
 
 
 /* Body CSS */
-.search-container {
+/*.search-container {
   margin: 20px auto;
   text-align: center;
   max-width: 100%;
@@ -142,7 +146,7 @@
 
 
 /* footer CSS */
-.footer {
+/*.footer {
   margin: 10px;
   width: auto;
   text-align: center;
@@ -196,4 +200,8 @@
 .user-card{
   padding: 10px;
   border:1px solid black;
-}
+} */
+
+
+
+

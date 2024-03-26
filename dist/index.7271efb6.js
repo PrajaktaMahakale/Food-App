@@ -27311,12 +27311,12 @@ const Header = ()=>{
     const onlineStatus = (0, _useOnlineStatusDefault.default)();
     console.log(btnNameReact);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "header",
+        className: "flex justify-between bg-pink-100 shadow-lg mb-2",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "logo-container",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    className: "logo",
+                    className: "w-56",
                     src: (0, _constants.LOGO_URL)
                 }, void 0, false, {
                     fileName: "src/components/Header.js",
@@ -27329,41 +27329,45 @@ const Header = ()=>{
                 columnNumber: 2
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "nav-items",
+                className: "flex items-center",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    className: "flex p-4 m-4",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "px-4",
                             children: [
                                 "Online status : ",
                                 onlineStatus ? "\u2705" : "\uD83D\uDD34"
                             ]
                         }, void 0, true, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 19,
+                            lineNumber: 20,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "px-4",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/",
                                 children: "Home"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
                                 lineNumber: 22,
-                                columnNumber: 17
+                                columnNumber: 32
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
                             lineNumber: 22,
-                            columnNumber: 13
+                            columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "px-4",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/about",
                                 children: "About Us"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
                                 lineNumber: 24,
-                                columnNumber: 17
+                                columnNumber: 34
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
@@ -27371,13 +27375,14 @@ const Header = ()=>{
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "px-4",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/contact",
                                 children: "Contact Us"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
                                 lineNumber: 25,
-                                columnNumber: 17
+                                columnNumber: 34
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
@@ -27385,13 +27390,14 @@ const Header = ()=>{
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "px-4",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/grocery",
                                 children: "Grocery"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
                                 lineNumber: 26,
-                                columnNumber: 17
+                                columnNumber: 34
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
@@ -27399,6 +27405,7 @@ const Header = ()=>{
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "px-4",
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
@@ -27419,7 +27426,7 @@ const Header = ()=>{
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Header.js",
-                    lineNumber: 18,
+                    lineNumber: 19,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
@@ -34246,14 +34253,14 @@ const Body = ()=>{
         className: "body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "filter",
+                className: "filter flex",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "search",
+                        className: "search ",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 type: "text",
-                                className: "search-box",
+                                className: "border border-solid border-black m-4",
                                 value: searchText,
                                 onChange: (e)=>{
                                     setSearchText(e.target.value);
@@ -34264,6 +34271,7 @@ const Body = ()=>{
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "px-4 py-1  bg-blue-200 m-4 rounded-lg",
                                 onClick: ()=>{
                                     const filteredRestro = listOfResaturants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                                     setFilteredRestaurant(filteredRestro);
@@ -34281,7 +34289,7 @@ const Body = ()=>{
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "filter-btn",
+                        className: "px-4 py-2 bg-gray-300 m-4 p-4 ",
                         onClick: ()=>{
                             //filter Logic
                             const filteredList = listOfResaturants.filter((res)=>res.info.avgRating > 4);
@@ -34306,7 +34314,7 @@ const Body = ()=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "res-container",
+                className: "flex flex-wrap",
                 children: filteredRestaurant.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/restaurants/" + restaurant.info.id,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
@@ -34363,36 +34371,37 @@ var _constants = require("../utils/constants");
 const RestaurantCard = (props)=>{
     const { resData } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "card",
+        className: "m-4 p-4 w-[250px] rounded-lg ",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                className: "rescard-logo",
+                className: "rounded-lg",
                 alt: "res-logo",
                 src: (0, _constants.IMG_CDN_URL) + resData.info.cloudinaryImageId
             }, void 0, false, {
                 fileName: "src/components/RestaurantCard.js",
-                lineNumber: 10,
+                lineNumber: 11,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                className: "font-bold py-2 text-lg",
                 children: resData.info.name
             }, void 0, false, {
                 fileName: "src/components/RestaurantCard.js",
-                lineNumber: 11,
+                lineNumber: 14,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: resData.info.cuisines.join(", ")
             }, void 0, false, {
                 fileName: "src/components/RestaurantCard.js",
-                lineNumber: 12,
+                lineNumber: 15,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: resData.info.costForTwo
             }, void 0, false, {
                 fileName: "src/components/RestaurantCard.js",
-                lineNumber: 13,
+                lineNumber: 16,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -34402,7 +34411,7 @@ const RestaurantCard = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/RestaurantCard.js",
-                lineNumber: 14,
+                lineNumber: 17,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -34412,7 +34421,7 @@ const RestaurantCard = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/RestaurantCard.js",
-                lineNumber: 15,
+                lineNumber: 18,
                 columnNumber: 9
             }, undefined)
         ]

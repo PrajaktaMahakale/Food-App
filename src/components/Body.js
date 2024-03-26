@@ -37,19 +37,19 @@ if(onlineStatus ===false )return
   }
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
-            <input type="text" className="search-box" 
+      <div className="filter flex">
+        <div className="search ">
+            <input type="text" className="border border-solid border-black m-4" 
             value={searchText} onChange={(e)=>{
                 setSearchText(e.target.value)
             }}/>
-            <button onClick={()=>{
+            <button className="px-4 py-1  bg-blue-200 m-4 rounded-lg" onClick={()=>{
                 const filteredRestro=listOfResaturants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
                 setFilteredRestaurant(filteredRestro);
             }}>Search</button>
         </div>
         <button
-          className="filter-btn"
+          className="px-4 py-2 bg-gray-300 m-4 p-4 "
           onClick={() => {
             //filter Logic
             const filteredList = listOfResaturants.filter(
@@ -63,7 +63,7 @@ if(onlineStatus ===false )return
         </button><br></br>
       </div>
       
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
           <Link key={restaurant.info.id} to = {"/restaurants/"+restaurant.info.id}>
             <RestaurantCard resData={restaurant} />
